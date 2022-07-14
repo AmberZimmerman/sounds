@@ -8,6 +8,12 @@ function makeNoise() {
   key.classList.add(".pressed");
 }
 
-document.addEventListener("keydown", function (event) {
-  console.log(event);
+document.addEventListener("keydown", function (e) {
+  console.log(e);
 });
+
+function test() {
+  console.log("this is working");
+}
+
+test();
