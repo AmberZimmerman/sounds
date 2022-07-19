@@ -1,13 +1,11 @@
-const bike = new Audio("mixkit-bike.wav");
-
 function makeNoise(e) {
   // This is how we would use an attribute selector to select one of the data keys
   // const audio = document.querySelector('audio[data-key=65')
 
   // We are going to change the variable audio above to one that select what is being passed through the event by using back ticks and es6 template literal instead
-  const audio = document.querySelector(`audio[data-key="${e.keycode}"]`);
+  const audio = document.querySelector(`.audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-
+  console.log(audio);
   // When I press a keyboard key, I am able to play the sound
   if (!audio) return;
 
@@ -28,10 +26,10 @@ function removeTransition(e) {
 let keys = document.querySelectorAll(`.key`);
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
-function stopNoise(e) {
-  if (e.keyCode === 32) return;
-}
+// function stopNoise(e) {
+//   if (e.keyCode === 32) return;
+// }
 
 // When I press a keyboard key the specific keycode is targeted
 document.addEventListener("keydown", makeNoise);
-document.addEventListener("keydown", stopNoise);
+// document.addEventListener("keydown", stopNoise);
