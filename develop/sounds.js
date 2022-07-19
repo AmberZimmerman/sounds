@@ -1,3 +1,5 @@
+const bike = new Audio("mixkit-bike.wav");
+
 function makeNoise(e) {
   // This is how we would use an attribute selector to select one of the data keys
   // const audio = document.querySelector('audio[data-key=65')
@@ -26,5 +28,10 @@ function removeTransition(e) {
 let keys = document.querySelectorAll(`.key`);
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
+function stopNoise(e) {
+  if (e.keyCode === 32) return;
+}
+
 // When I press a keyboard key the specific keycode is targeted
 document.addEventListener("keydown", makeNoise);
+document.addEventListener("keydown", stopNoise);
