@@ -6,7 +6,7 @@ function makeNoise(e) {
   const audio = document.querySelector(`.audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   console.log(audio);
-  // When I press a keyboard key, I am able to play the sound
+
   if (!audio) return;
 
   // When I press a key repeatedly, there is no delay in the sound
@@ -26,10 +26,5 @@ function removeTransition(e) {
 let keys = document.querySelectorAll(`.key`);
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
-// function stopNoise(e) {
-//   if (e.keyCode === 32) return;
-// }
-
 // When I press a keyboard key the specific keycode is targeted
 document.addEventListener("keydown", makeNoise);
-// document.addEventListener("keydown", stopNoise);
